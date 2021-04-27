@@ -211,7 +211,7 @@ class _magazaState extends State<magaza> {
                         onSurface: Colors.grey,
                       ),
                       onPressed: (){
-                        getPostData();
+                        print("öge alındı");
                       },
                     ),
                   ),
