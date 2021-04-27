@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:idle_population_clicker/pages/istatistik.dart';
 import 'package:idle_population_clicker/pages/magaza.dart';
+import 'package:idle_population_clicker/pages/simulasyon.dart';
 import 'pages/clicker.dart';
 import 'package:idle_population_clicker/pages/diger.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -81,7 +82,7 @@ class _HomeState extends State<Home> {
     final _SayfaSecenekleri = [              //alt bardaki sayfalara gidilen yer
       clicker(),
       magaza(),
-      Text('item 3',style: TextStyle(fontSize: 36.0),),
+      simulasyon(),
       Istatistik(),
       Diger(),
     ];
