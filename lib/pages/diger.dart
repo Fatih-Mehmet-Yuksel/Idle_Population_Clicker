@@ -29,7 +29,6 @@ class DigerButtonu extends StatelessWidget {     //butonun özelliklerini taşı
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(left: 20,right: 20),
       width: 50,
       height: 550,
       decoration: BoxDecoration(
@@ -107,6 +106,7 @@ class _DigerState extends State<Diger> {
               child: AnimatedContainer(
                 padding: EdgeInsets.symmetric(horizontal: 15),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     DigerButtonu('    AYARLAR     ', ()=> Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ayarlar())),Icons.settings_rounded),
                     DigerButtonu('VERSİYON GEÇMİŞİ', ()=> Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Versiyon_Gecmisi())),Icons.timer_rounded),
