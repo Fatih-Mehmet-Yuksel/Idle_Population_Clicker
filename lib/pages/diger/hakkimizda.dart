@@ -9,7 +9,7 @@ class Hakkimizda extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           CircleAvatar(
-            backgroundImage: AssetImage("lib/image/avatar.png"),
+            backgroundImage: AssetImage("assets/images/avatar.jpg"),
             backgroundColor: Colors.white,
             radius: 85,
           ),
