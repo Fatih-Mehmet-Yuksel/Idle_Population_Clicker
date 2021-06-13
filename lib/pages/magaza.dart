@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:idle_population_clicker/app_bar.dart';
 import 'package:idle_population_clicker/data.dart';
+import 'package:slide_popup_dialog/slide_popup_dialog.dart' as slideDialog;
+
 
 class magaza extends StatefulWidget {
   @override
@@ -103,6 +105,15 @@ class _magazaState extends State<magaza> {
                       ),
                       onPressed: (){
                         print("öge alındı");
+                      },
+                      onLongPress: (){
+                        slideDialog.showSlideDialog(
+                          context: context,
+                          child: Text(post["popupyazi"]),
+                          barrierColor: Colors.white.withOpacity(0.4),
+                          pillColor: Color(0xFF15182D),
+                          backgroundColor: Color(0xFFFA1B83),
+                        );
                       },
                     ),
                   ),

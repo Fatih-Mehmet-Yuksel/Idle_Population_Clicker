@@ -1,6 +1,37 @@
 import 'package:flutter/material.dart';
+import 'ayarlar.dart';
+import 'kayitli_sil.dart';
+import 'versiyon_gecimisi.dart';
+import 'hava_durumu.dart';
+import '../loading_screen.dart';
 
-class Hakkimizda extends StatelessWidget {
+class Hakkimizda extends StatefulWidget {
+  @override
+  _HakkimizdaState createState() => _HakkimizdaState();
+}
+
+class _HakkimizdaState extends State<Hakkimizda> {
+  @override
+  Widget build(BuildContext context) {
+    final controller = PageController(
+      initialPage: 4,
+    );
+    final pageView=PageView(
+      controller: controller,
+      children: [
+        LoadingScreen(),
+        ayaricerik(),
+        Versiyon_Gecmisiicerik(),
+        KayitSilicerik(),
+        Hakkimizdaicerik(),
+      ],
+    );
+    return pageView;
+  }
+}
+
+
+class Hakkimizdaicerik extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

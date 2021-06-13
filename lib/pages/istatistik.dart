@@ -1,5 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:idle_population_clicker/main.dart';
+import 'package:fl_chart/fl_chart.dart';
+import 'package:idle_population_clicker/graphic.dart';
 
 class Istatistik extends StatefulWidget {
   @override
@@ -7,6 +11,7 @@ class Istatistik extends StatefulWidget {
 }
 
 class _IstatistikState extends State<Istatistik> {
+  Map testing;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -36,6 +41,7 @@ class _IstatistikState extends State<Istatistik> {
                 Text('İzlenen reklam sayısı : ',style: TextStyle(color: Colors.white70,fontFamily: 'nasalization'),),
                 Text('Sahip olunan yapılar : ',style: TextStyle(color: Colors.white70,fontFamily: 'nasalization'),),
                 Text('Geliştirmeler : ',style: TextStyle(color: Colors.white70,fontFamily: 'nasalization'),),
+                Text('$start',style: TextStyle(color: Colors.white70,fontFamily: 'nasalization'),),
               ],
             ),
           ),
@@ -50,12 +56,31 @@ class _IstatistikState extends State<Istatistik> {
                 onSurface: Colors.grey,
               ),
               onPressed: (){
-
+                FirebaseFirestore.instance.collection('testing').add({'Bir Easteregg :)': Timestamp.fromDate(DateTime.now())});
+                fetchData();
               },
+
             ),
           ),
+          Text(
+            testing.toString(),
+            textAlign: TextAlign.center,
+            style: TextStyle(color: Colors.white70,fontFamily: 'nasalization'),),
+          Divider(
+            height: 100,
+          ),
+          LineChartSample2(),
         ],
       ),
     );
+  }
+  fetchData(){
+    CollectionReference collectionReference = FirebaseFirestore.instance.collection('testing');
+    collectionReference.snapshots().listen((snapshot) {
+
+      setState(() {
+        testing = snapshot.docs[20].data();
+      });
+    });
   }
 }

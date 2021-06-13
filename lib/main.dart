@@ -1,15 +1,25 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
+import 'package:idle_population_clicker/models/kayitli.dart';
 import 'package:idle_population_clicker/pages/istatistik.dart';
+import 'package:idle_population_clicker/pages/loading_screen.dart';
 import 'package:idle_population_clicker/pages/magaza.dart';
 import 'package:idle_population_clicker/pages/simulasyon.dart';
+import 'package:idle_population_clicker/services/database_helper.dart';
 import 'pages/clicker.dart';
 import 'package:idle_population_clicker/pages/diger.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:after_layout/after_layout.dart';
 import 'pages/baslangic.dart';
+import 'dart:async';
+import 'package:sqflite/sqflite.dart';
+import 'package:slide_popup_dialog/slide_popup_dialog.dart' as slideDialog;
 
+Timer timer;
+int start = 3;
 var irk_adi;
+
 _read() async {
   final prefs = await SharedPreferences.getInstance();
   final key = 'my_int_key';
@@ -17,10 +27,12 @@ _read() async {
   print('read: $value');
   irk_adi='$value';
 }
-int nufus_sayisi=0;
+int nufus_sayisi;
 int SeciliSayfa = 0;
 
-void main(){
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(idle_population_clicker());
 }
 
@@ -45,6 +57,7 @@ class Splash extends StatefulWidget {
   SplashState createState() => new SplashState();
 }
 class SplashState extends State<Splash> with AfterLayoutMixin<Splash> {
+
   Future checkFirstSeen() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     bool _seen = (prefs.getBool('seen') ?? false);
@@ -62,11 +75,7 @@ class SplashState extends State<Splash> with AfterLayoutMixin<Splash> {
   void afterFirstLayout(BuildContext context) => checkFirstSeen();
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      body: new Center(
-        child: new Text('Yükleniyor...'),
-      ),
-    );
+    return LoadingScreen();
   }
 }
 
@@ -77,6 +86,18 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  Kayitli kayitli=Kayitli();
+  DatabaseHelper dbHelper;
+
+
+  @override
+  void initState() {
+    getcount();
+    super.initState();
+    setState(() {
+      dbHelper = DatabaseHelper.instance;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     final _SayfaSecenekleri = [              //alt bardaki sayfalara gidilen yer

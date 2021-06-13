@@ -2,31 +2,38 @@ const TEK_KULLANIM_MAGAZA_DATA=[
   {
     "üstbaslik":"deneme1",
     "altbaslik":"alt başlık deneme1",
-    "gorsel":"assets/images/upgrade.gif"
+    "gorsel":"assets/images/upgrade.gif",
+    "popupyazi":"ilk deneme popup yazısı"
   },{
     "üstbaslik":"deneme2",
     "altbaslik":"salt başlık deneme2",
-    "gorsel":"assets/images/source.gif"
+    "gorsel":"assets/images/source.gif",
+    "popupyazi":"ikinci deneme popup yazısı"
   },{
     "üstbaslik":"deneme3",
     "altbaslik":"alt başlık deneme3",
-    "gorsel":"assets/images/source.gif"
+    "gorsel":"assets/images/source.gif",
+    "popupyazi":"son deneme popup yazısı"
   },{
     "üstbaslik":"deneme4",
     "altbaslik":"alt başlık deneme4",
-    "gorsel":"assets/images/source.gif"
+    "gorsel":"assets/images/source.gif",
+    "popupyazi":"ilk deneme popup yazısı"
   },{
     "üstbaslik":"deneme5",
     "altbaslik":"alt başlık deneme5",
-    "gorsel":"assets/images/source.gif"
+    "gorsel":"assets/images/source.gif",
+    "popupyazi":"ilk deneme popup yazısı"
   },{
     "üstbaslik":"deneme6",
     "altbaslik":"alt başlık deneme6",
-    "gorsel":"assets/images/source.gif"
+    "gorsel":"assets/images/source.gif",
+    "popupyazi":"ilk deneme popup yazısı"
   },{
     "üstbaslik":"deneme7",
     "altbaslik":"alt başlık deneme7",
-    "gorsel":"assets/images/source.gif"
+    "gorsel":"assets/images/source.gif",
+    "popupyazi":"ilk deneme popup yazısı"
   }
 ];
 const GELISTIRMELER=[

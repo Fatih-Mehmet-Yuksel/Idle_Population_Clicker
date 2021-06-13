@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:lite_rolling_switch/lite_rolling_switch.dart';
+import 'hakkimizda.dart';
+import 'kayitli_sil.dart';
+import 'versiyon_gecimisi.dart';
+import 'hava_durumu.dart';
+import '../loading_screen.dart';
+import 'package:idle_population_clicker/graphic.dart';
 
 class ayarlar extends StatefulWidget {
   @override
@@ -45,10 +51,14 @@ class Ayar extends StatelessWidget {
   }
 }
 
-
-class _ayarlarState extends State<ayarlar> {
-  bool isSwitched = false;
+class ayaricerik extends StatefulWidget {
   @override
+  _ayaricerikState createState() => _ayaricerikState();
+}
+
+class _ayaricerikState extends State<ayaricerik> {
+  @override
+
   Widget build(BuildContext context) {
     return Material(     //yazıların altında sarı çizgiler olmasın diye kullanıldı
       child: Container(
@@ -60,6 +70,29 @@ class _ayarlarState extends State<ayarlar> {
         ),
         color: Colors.black,
       ),
+    );;
+  }
+}
+
+
+
+class _ayarlarState extends State<ayarlar> {
+  bool isSwitched = false;
+  @override
+  Widget build(BuildContext context) {
+    final controller = PageController(
+      initialPage: 1,
     );
+    final pageView=PageView(
+      controller: controller,
+      children: [
+        LoadingScreen(),
+        ayaricerik(),
+        Versiyon_Gecmisiicerik(),
+        KayitSilicerik(),
+        Hakkimizdaicerik(),
+      ],
+    );
+    return pageView;
   }
 }

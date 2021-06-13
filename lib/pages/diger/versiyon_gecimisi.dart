@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:idle_population_clicker/data.dart';
+import 'ayarlar.dart';
+import 'kayitli_sil.dart';
+import 'hakkimizda.dart';
+import 'hava_durumu.dart';
+import '../loading_screen.dart';
 
 class Versiyon_Gecmisi extends StatefulWidget {
   @override
   _Versiyon_GecmisiState createState() => _Versiyon_GecmisiState();
 }
+class Versiyon_Gecmisiicerik extends StatefulWidget {
+  @override
+  _Versiyon_GecmisiicerikState createState() => _Versiyon_GecmisiicerikState();
+}
 
-class _Versiyon_GecmisiState extends State<Versiyon_Gecmisi> {
+class _Versiyon_GecmisiicerikState extends State<Versiyon_Gecmisiicerik> {
   List<Widget> itemsData=[];
 
   void getPostData(){
@@ -116,4 +125,26 @@ class _Versiyon_GecmisiState extends State<Versiyon_Gecmisi> {
     );
   }
 }
+
+
+class _Versiyon_GecmisiState extends State<Versiyon_Gecmisi> {
+  @override
+  Widget build(BuildContext context) {
+    final controller = PageController(
+      initialPage: 2,
+    );
+    final pageView=PageView(
+      controller: controller,
+      children: [
+        LoadingScreen(),
+        ayaricerik(),
+        Versiyon_Gecmisiicerik(),
+        KayitSilicerik(),
+        Hakkimizdaicerik(),
+      ],
+    );
+    return pageView;
+  }
+}
+
 
