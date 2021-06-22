@@ -13,8 +13,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:after_layout/after_layout.dart';
 import 'pages/baslangic.dart';
 import 'dart:async';
-import 'package:sqflite/sqflite.dart';
-import 'package:slide_popup_dialog/slide_popup_dialog.dart' as slideDialog;
+//import 'package:sqflite/sqflite.dart';
+//import 'package:slide_popup_dialog/slide_popup_dialog.dart' as slideDialog;
 
 Timer timer;
 int start = 3;

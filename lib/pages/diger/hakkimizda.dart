@@ -68,7 +68,7 @@ class Hakkimizdaicerik extends StatelessWidget {
             padding: EdgeInsets.only(left: 20,right: 10),
             child: Text(
               "Bu uygulama Dr. Öğretim Üyesi Ahmet Cevahir ÇINAR tarafından yürütülen 3301456 kodlu MOBİL PROGRAMLAMA dersi "
-                  "kapsamında 203301097 numaralı Fatih Mehmet Yüksel tarafından 30 Nisan 2021 günü yapılmıştır.",
+                  "kapsamında 203301097 numaralı Fatih Mehmet Yüksel tarafından 25 Haziran 2021 günü yapılmıştır.",
               style: TextStyle(
                   color: Colors.teal[50],
                   fontSize: 20,

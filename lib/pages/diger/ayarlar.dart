@@ -5,7 +5,7 @@ import 'kayitli_sil.dart';
 import 'versiyon_gecimisi.dart';
 import 'hava_durumu.dart';
 import '../loading_screen.dart';
-import 'package:idle_population_clicker/graphic.dart';
+import '../../models/graphic.dart';
 
 class ayarlar extends StatefulWidget {
   @override
